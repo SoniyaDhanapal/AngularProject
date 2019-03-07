@@ -1,0 +1,25 @@
+
+ <div class="modal-content animate">
+ <div class="container">
+  <label for="taskNo"><b>Task Number</b></label>
+  <input  disabled  #textbox type="text" placeholder="Enter Task number" [(ngModel)]="taskNo"  name="taskNo" required>
+
+  <label for="taskName"><b>Task Name</b></label>
+  <input type="text" placeholder="Enter Task Name" name="taskName" [(ngModel)] = "taskName">
+  <label for="developerName"><b>Developer Name</b></label>
+  <select [(ngModel)]="developerName">
+    <option *ngFor="let x of listOfDeveopers" [value]="x.id">{{x.name}}</option>
+</select>
+
+
+  <button type="button" (click)="onAssignToDeveloperClick()">Assign To Developer</button>
+  <button type="button" (click)="onStartClick()">Start</button>
+
+<!--
+  <button type="button" (click)="onStartClick()">Start</button>
+  <button type="button" (click)="onInprogressClick()">In progress</button>
+  <button type="button" (click)="onWorkdoneClick()">Work done</button> -->
+ </div>
+
+
+</div>
