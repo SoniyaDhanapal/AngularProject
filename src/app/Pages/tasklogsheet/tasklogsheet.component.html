@@ -1,0 +1,16 @@
+<div class="modal-content animate">
+  <div class="container">
+
+    <label for="taskNo"><b>Task Number</b></label>
+    <input disabled #textbox type="text" placeholder="Enter Task number" [(ngModel)]="taskNo" name="taskNo" required>
+
+    <label for="taskName"><b>Task Name</b></label>
+    <input type="text" placeholder="Enter Task Name" name="taskName" [(ngModel)]="taskName">
+
+    <label for="developerName"><b>Developer Name</b></label>
+    <select type=form-control [(ngModel)]="developerName">
+      <option *ngFor="let x of listOfDeveopers" [value]="x.id">{{x.name}}</option>
+    </select><br>
+    <button type="button" routerLinkActive="active" (click)="onAssignToDeveloperClick()">Assign To Developer</button>
+  </div>
+</div>
