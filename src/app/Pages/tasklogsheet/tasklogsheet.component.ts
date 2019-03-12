@@ -9,16 +9,16 @@ import { Router } from '@angular/router';
 })
 export class TasklogsheetComponent implements OnInit {
   taskNo: any;
-  taskName = "Test Task";
+  taskName = 'Test Task';
   developerName = 0;
   listOfDeveopers: HeroModel[] = [];
   constructor(private router: Router) {}
 
   ngOnInit() {
     this.listOfDeveopers = test; // Developers;
-    this.taskNo = JSON.parse(localStorage.getItem("saved")).taskNo;
+    this.taskNo = JSON.parse(localStorage.getItem('saved')).taskNo;
     this.developerName = JSON.parse(
-      localStorage.getItem("saved")
+      localStorage.getItem('saved')
     ).developerName;
   }
 
@@ -31,31 +31,31 @@ export class TasklogsheetComponent implements OnInit {
       taskName: this.taskName,
       developerName: this.developerName
     };
-    localStorage.setItem("saved", JSON.stringify(myObj));
-    alert(this.taskNo + " " + this.taskName + "onStartClick");
-    debugger;
-    this.router.navigate(['/TaskListComponent']);
+    localStorage.setItem('saved ' , JSON.stringify(myObj));
+    alert(this.taskNo + '  ' + this.taskName + 'onStartClick');
+    this.router.navigate(['task-list'])
   }
   onStartClick(): void {
     // obj conversion
-    console.log(JSON.parse(localStorage.getItem("saved")));
-    alert(JSON.parse(localStorage.getItem("saved")));
+    console.log(JSON.parse(localStorage.getItem('saved')));
+    alert(JSON.parse(localStorage.getItem('saved')));
+    this.router.navigate(['TaskListComponent'])
 
     alert(
-      "task no=" +
+      'task no=' +
         this.taskNo +
-        " task name=" +
+        ' task name=' +
         this.taskName +
-        " developer id=" +
+        ' developer id=' +
         this.developerName +
-        "onStartClick"
+        'onStartClick'
     );
   }
   onInProgressClick(): void {
-    alert(this.taskNo + " " + this.taskName + "onStartClick");
+    alert(this.taskNo + ' ' + this.taskName + 'onStartClick');
   }
   onWorkDoneClick(): void {
-    alert(this.taskNo + " " + this.taskName + "onStartClick");
+    alert(this.taskNo + ' ' + this.taskName + 'onStartClick');
   }
 }
 

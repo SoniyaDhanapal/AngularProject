@@ -3,9 +3,15 @@ import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { AppComponent } from './app.component';
  import { TasklogsheetComponent } from './Pages/tasklogsheet/tasklogsheet.component'
-import { RouterModule} from '@angular/router';
+import { RouterModule, Routes, Router} from '@angular/router';
 import { TaskListComponent } from './Pages/task-list/task-list.component';
-import {   routes} from './module/router';
+import { listLazyRoutes } from '@angular/compiler/src/aot/lazy_routes';
+import { RoutingModule } from './module/router';
+
+export const routes: Routes = [
+  { path: '' , component: TasklogsheetComponent },
+  { path: 'task-list' , component: TaskListComponent }
+]
 
 @NgModule({
   declarations: [
@@ -15,15 +21,11 @@ import {   routes} from './module/router';
   ],
   imports: [
     BrowserModule,
-    FormsModule,
-    RouterModule.forRoot(
-      routes ,
-      { enableTracing: true } // <-- debugging purposes only
-    )
-
-
+     FormsModule, RoutingModule
+    //  RouterModule.forRoot(routes) ,
   ],
-  // providers: [Routerclass],
+   exports: [RouterModule],
+
   bootstrap: [AppComponent]
 })
 export class AppModule { }
