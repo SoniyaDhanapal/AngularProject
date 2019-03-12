@@ -19,7 +19,7 @@
               "src/assets",
               "src/favicon.ico"
             ],
-            "styles": [],
+            "styles": ["./node_modules/bootstrap/dist/css/bootstrap.min.css"],
             "scripts": []
           },
           "configurations": {

@@ -7,7 +7,7 @@ import { RouterModule, Routes, Router} from '@angular/router';
 import { TaskListComponent } from './Pages/task-list/task-list.component';
 import { listLazyRoutes } from '@angular/compiler/src/aot/lazy_routes';
 import { RoutingModule } from './module/router';
-
+// import { MDBBootstrapModule } from 'angular-bootstrap-md';
 export const routes: Routes = [
   { path: '' , component: TasklogsheetComponent },
   { path: 'task-list' , component: TaskListComponent }
@@ -21,7 +21,8 @@ export const routes: Routes = [
   ],
   imports: [
     BrowserModule,
-     FormsModule, RoutingModule
+     FormsModule, RoutingModule,
+    //  MDBBootstrapModule.forRoot()
     //  RouterModule.forRoot(routes) ,
   ],
    exports: [RouterModule],

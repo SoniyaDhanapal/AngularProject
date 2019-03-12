@@ -6,10 +6,12 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./task-list.component.css']
 })
 export class TaskListComponent implements OnInit {
-
-  constructor() { }
+  
+  headElements = ['Task number ', ' Task name', ' Developer Name', ' Status'] ;
+    constructor() { }
 
   ngOnInit() {
+    localStorage.getItem('saved')
   }
 
 }
