@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit } from "@angular/core";
 
 @Component({
   selector: 'app-task-list',
@@ -6,12 +6,11 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./task-list.component.css']
 })
 export class TaskListComponent implements OnInit {
-  
-  headElements = ['Task number ', ' Task name', ' Developer Name', ' Status'] ;
-    constructor() { }
+  elements: any;
+  headElements = ['Task number ', ' Task name', ' Developer Name', ' Status'];
+  constructor() { }
 
   ngOnInit() {
-    localStorage.getItem('saved')
+    this.elements = JSON.parse(localStorage.getItem('saved'));
   }
-
 }

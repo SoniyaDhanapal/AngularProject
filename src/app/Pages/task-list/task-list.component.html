@@ -1,17 +1,19 @@
-
-
-<table class="table" >
-  <thead class="black white-text">
+<table class="table">
+  <thead class="blue">
     <tr>
       <th *ngFor="let head of headElements" scope="col">{{head}} </th>
     </tr>
   </thead>
   <tbody>
-    <tr  *ngFor="let element of elements">
-      <th scope="row">{{element.taskNo}}</th>
-      <td>{{element.taskName}}</td>
-      <td>{{element.developerName}}</td>
-      <!-- <td>{{element.status}}</td> -->
+    <tr>
+
+      <th scope="row">{{elements.taskNo}}</th>
+      <td>{{elements.taskName}}</td>
+      <td>{{elements.developerName}}</td>
+      <td>
+        <button type="button"  onclick="createButtons">Click!</button>
+
+      </td>
     </tr>
   </tbody>
 </table>

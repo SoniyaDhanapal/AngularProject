@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { HeroModel , test } from './../../module/Hero'
+import { HeroModel, test } from './../../module/Hero'
 import { Router } from '@angular/router';
 
 @Component({
@@ -9,20 +9,22 @@ import { Router } from '@angular/router';
 })
 export class TasklogsheetComponent implements OnInit {
   taskNo: any;
-  taskName = 'Test Task';
-  developerName = 0;
+  taskName: any;
+  developerName: any;
+  
+  // taskName = 'Test Task';
+  // developerName = 0;  
+ // public HeroModel: HeroModel[] = [];
   listOfDeveopers: HeroModel[] = [];
-  constructor(private router: Router) {}
+  constructor(private router: Router) { }
 
   ngOnInit() {
     this.listOfDeveopers = test; // Developers;
     this.taskNo = JSON.parse(localStorage.getItem('saved')).taskNo;
-    this.developerName = JSON.parse(
-      localStorage.getItem('saved')
-    ).developerName;
+    this.developerName = JSON.parse(localStorage.getItem('saved')).developerName;
   }
 
-  onWidgetChange(): void {}
+  onWidgetChange(): void { }
 
   onAssignToDeveloperClick(): void {
     // this.taskNo++;
@@ -31,8 +33,8 @@ export class TasklogsheetComponent implements OnInit {
       taskName: this.taskName,
       developerName: this.developerName
     };
-    localStorage.setItem('saved ' , JSON.stringify(myObj));
-    alert(this.taskNo + '  ' + this.taskName + 'onStartClick');
+    localStorage.setItem('saved', JSON.stringify(myObj));
+    alert(this.taskNo + '  ' + this.taskName + ' ' + this.developerName + 'onStartClick');
     this.router.navigate(['task-list'])
   }
   onStartClick(): void {
@@ -43,19 +45,21 @@ export class TasklogsheetComponent implements OnInit {
 
     alert(
       'task no=' +
-        this.taskNo +
-        ' task name=' +
-        this.taskName +
-        ' developer id=' +
-        this.developerName +
-        'onStartClick'
+      this.taskNo +
+      ' task name=' +
+      this.taskName +
+      ' developer id=' +
+      this.developerName +
+      'onStartClick'
     );
+
   }
-  onInProgressClick(): void {
-    alert(this.taskNo + ' ' + this.taskName + 'onStartClick');
-  }
-  onWorkDoneClick(): void {
-    alert(this.taskNo + ' ' + this.taskName + 'onStartClick');
-  }
+ 
+  //   onInProgressClick(): void {
+  //     alert(this.taskNo + ' ' + this.taskName + 'onStartClick');
+  //   }
+  //   onWorkDoneClick(): void {
+  //     alert(this.taskNo + ' ' + this.taskName + 'onStartClick');
+  //   }
 }
 
