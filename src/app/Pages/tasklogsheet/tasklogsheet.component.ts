@@ -20,21 +20,28 @@ export class TasklogsheetComponent implements OnInit {
 
   ngOnInit() {
     this.listOfDeveopers = test; // Developers;
-    this.taskNo = JSON.parse(localStorage.getItem('saved')).taskNo;
-    this.developerName = JSON.parse(localStorage.getItem('saved')).developerName;
+    // this.taskNo = JSON.parse(localStorage.getItem('saved')).taskNo;
+    // this.developerName = JSON.parse(localStorage.getItem('saved')).developerName;
   }
 
   onWidgetChange(): void { }
 
   onAssignToDeveloperClick(): void {
     // this.taskNo++;
+     let itemsArray =[];
+    if(JSON.parse(localStorage.getItem('saved')).length>0)
+    {
+          itemsArray  =JSON.parse(localStorage.getItem('saved'));
+    } 
     const myObj = {
       taskNo: this.taskNo,
       taskName: this.taskName,
       developerName: this.developerName
     };
-    localStorage.setItem('saved', JSON.stringify(myObj));
-    alert(this.taskNo + '  ' + this.taskName + ' ' + this.developerName + 'onStartClick');
+    itemsArray.push(myObj)
+debugger;
+    localStorage.setItem('saved', JSON.stringify(itemsArray));
+    //(this.taskNo + '  ' + this.taskName + ' ' + this.developerName + 'onStartClick');
     this.router.navigate(['task-list'])
   }
   onStartClick(): void {
