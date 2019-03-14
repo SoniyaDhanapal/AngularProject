@@ -11,17 +11,11 @@ export class TasklogsheetComponent implements OnInit {
   taskNo: any;
   taskName: any;
   developerName: any;
-  
-  // taskName = 'Test Task';
-  // developerName = 0;  
- // public HeroModel: HeroModel[] = [];
-  listOfDeveopers: HeroModel[] = [];
+ listOfDeveopers: HeroModel[] = [];
   constructor(private router: Router) { }
 
   ngOnInit() {
     this.listOfDeveopers = test; // Developers;
-    // this.taskNo = JSON.parse(localStorage.getItem('saved')).taskNo;
-    // this.developerName = JSON.parse(localStorage.getItem('saved')).developerName;
   }
 
   onWidgetChange(): void { }
@@ -29,10 +23,15 @@ export class TasklogsheetComponent implements OnInit {
   onAssignToDeveloperClick(): void {
     // this.taskNo++;
      let itemsArray =[];
-    if(JSON.parse(localStorage.getItem('saved')).length>0)
+     const local = JSON.parse(localStorage.getItem("saved"));
+     if(local != null) {
+
+    if(local.length>0)
     {
           itemsArray  =JSON.parse(localStorage.getItem('saved'));
     } 
+     }
+
     const myObj = {
       taskNo: this.taskNo,
       taskName: this.taskName,

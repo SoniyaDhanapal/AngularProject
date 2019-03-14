@@ -7,13 +7,14 @@
     </tr>
   </thead>
   <tbody>
-    <tr *ngFor="let element of elements">
+    <tr *ngFor="let element of elements;let i = index">
 
       <th scope="row">{{element.taskNo}}</th>
       <td>{{element.taskName}}</td>
       <td>{{element.developerName}}</td>
       <td>
         <button type="button"  onclick="createButtons">Click!</button>
+        <button class="button_transparent" (click)="Delete(element,i)"> delete </button>
 
       </td>
     </tr>
