@@ -6,7 +6,7 @@ import { TaskListComponent } from '../Pages/task-list/task-list.component'
 
 @NgModule({
   imports: [RouterModule.forRoot([
-    { path: '', redirectTo: '/d', pathMatch: 'full' },
+     { path: '', redirectTo: '/d', pathMatch: 'full' },
     { path: 'd', component: TasklogsheetComponent },
     {
       path: 'task-list',

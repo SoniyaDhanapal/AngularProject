@@ -6,7 +6,7 @@ import { Component, OnInit } from "@angular/core";
   styleUrls: ['./task-list.component.css']
 })
 export class TaskListComponent implements OnInit {
-  elements:any;
+  elements: any;
   headElements = ['Task number ', ' Task name', ' Developer Name', ' Status'];
   constructor() { }
 
@@ -15,9 +15,14 @@ export class TaskListComponent implements OnInit {
     this.elements = JSON.parse(localStorage.getItem('saved'));
   }
 
-Delete(ele: any,i: number){
-  this.elements.splice(i,1);
-   localStorage.setItem('saved', JSON.stringify(this.elements));
-}
-
+  Delete(ele: any, i: number) {
+    this.elements.splice(i, 1);
+    localStorage.setItem('saved', JSON.stringify(this.elements));
+  }
+  parentInput: any;
+  visible: boolean;
+  clickEven(ele: any) {
+    this.visible = true;
+    this.parentInput = ele;
+  }
 }

@@ -1,36 +1,57 @@
-import { Component, OnInit } from '@angular/core';
+import { DoCheck, OnChanges, Component, OnInit, ViewChild, Input, Output } from '@angular/core';
 import { HeroModel, test } from './../../module/Hero'
 import { Router } from '@angular/router';
+// import { EventEmitter } from 'events';
 
 @Component({
   selector: 'app-tasklogsheet',
   templateUrl: './tasklogsheet.component.html',
   styleUrls: ['./tasklogsheet.component.css']
 })
-export class TasklogsheetComponent implements OnInit {
+//, DoCheck 
+export class TasklogsheetComponent implements OnInit{
+ 
+  @ViewChild('textbox') mytextbox: any
+  // @Input
+  // @Input() taskInput: any;
+  
   taskNo: any;
   taskName: any;
   developerName: any;
- listOfDeveopers: HeroModel[] = [];
+  listOfDeveopers: HeroModel[] = [];
   constructor(private router: Router) { }
+  //Input()
+  // ngOnChanges() {
+  //   console.log(this.taskInput);
+  // }
+
+  // ngDoCheck() {
+  //   if (this.taskInput !== undefined) {
+  //     console.log(this.taskInput);
+  //     this.taskName = this.taskInput.taskName;
+  //     this.taskNo = this.taskInput.taskNo;
+  //     this.developerName = this.taskInput.developerName;
+  //   }
+  // }
 
   ngOnInit() {
     this.listOfDeveopers = test; // Developers;
+    console.log(this.mytextbox);
   }
 
   onWidgetChange(): void { }
 
   onAssignToDeveloperClick(): void {
     // this.taskNo++;
-     let itemsArray =[];
-     const local = JSON.parse(localStorage.getItem("saved"));
-     if(local != null) {
+    console.log(this.mytextbox);
+    let itemsArray = [];
+    const local = JSON.parse(localStorage.getItem('saved'));
+    if (local != null) {
 
-    if(local.length>0)
-    {
-          itemsArray  =JSON.parse(localStorage.getItem('saved'));
-    } 
-     }
+      if (local.length > 0) {
+        itemsArray = JSON.parse(localStorage.getItem('saved'));
+      }
+    }
 
     const myObj = {
       taskNo: this.taskNo,
@@ -38,9 +59,8 @@ export class TasklogsheetComponent implements OnInit {
       developerName: this.developerName
     };
     itemsArray.push(myObj)
-debugger;
+
     localStorage.setItem('saved', JSON.stringify(itemsArray));
-    //(this.taskNo + '  ' + this.taskName + ' ' + this.developerName + 'onStartClick');
     this.router.navigate(['task-list'])
   }
   onStartClick(): void {
@@ -60,12 +80,6 @@ debugger;
     );
 
   }
- 
-  //   onInProgressClick(): void {
-  //     alert(this.taskNo + ' ' + this.taskName + 'onStartClick');
-  //   }
-  //   onWorkDoneClick(): void {
-  //     alert(this.taskNo + ' ' + this.taskName + 'onStartClick');
-  //   }
+
 }
 
