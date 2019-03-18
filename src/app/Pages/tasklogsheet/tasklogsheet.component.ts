@@ -9,18 +9,18 @@ import { Router } from '@angular/router';
   styleUrls: ['./tasklogsheet.component.css']
 })
 //, DoCheck 
-export class TasklogsheetComponent implements OnInit{
- 
+export class TasklogsheetComponent implements OnInit {
+
   @ViewChild('textbox') mytextbox: any
   // @Input
   // @Input() taskInput: any;
-  
+
   taskNo: any;
   taskName: any;
   developerName: any;
   listOfDeveopers: HeroModel[] = [];
   constructor(private router: Router) { }
-  //Input()
+  // Input()
   // ngOnChanges() {
   //   console.log(this.taskInput);
   // }
@@ -42,6 +42,7 @@ export class TasklogsheetComponent implements OnInit{
   onWidgetChange(): void { }
 
   onAssignToDeveloperClick(): void {
+    debugger
     // this.taskNo++;
     console.log(this.mytextbox);
     let itemsArray = [];
